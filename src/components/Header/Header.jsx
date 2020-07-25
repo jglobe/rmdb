@@ -7,7 +7,7 @@ import Nav from '../Nav';
 const Header = () => {
     return (
         <div className={styles.Header}>
-            <div className={styles.title_block}><p>Rick & Morty BD</p></div>
+            <div className={styles.title_block}><p>Rick & Morty DB</p></div>
             <div className={styles.nav_block}>
                 <Nav />
             </div>
