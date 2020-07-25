@@ -22,7 +22,6 @@ export default class CharactersList extends React.Component {
         const { characters } = this.state;
 
         const items = characters.map((item) => {
-            console.log(item);
             return (
                 <li key={item.id}>
                     <Character
@@ -33,6 +32,7 @@ export default class CharactersList extends React.Component {
                         gender={item.gender}
                         currentLocation={item.location.name}
                         firstEpisodeUrl={item.episode[0]}
+                        id={item.id}
                     />
                 </li>
             );

@@ -10,7 +10,7 @@ export default class Character extends React.Component {
 
     state = {
         firstEpisodeName: null,
-        id: 14
+        id: this.props.id
     }
 
     componentDidMount() {
@@ -24,7 +24,7 @@ export default class Character extends React.Component {
 
     render() {
         const { name, img, status, species,
-            gender, currentLocation } = this.props;
+            gender, currentLocation, id } = this.props;
         const { firstEpisodeName } = this.state;
         let statusCircleClass = 'statusCircle';
     
