@@ -24,7 +24,7 @@ export default class Character extends React.Component {
 
     render() {
         const { name, img, status, species,
-            gender, currentLocation, id } = this.props;
+            gender, currentLocation } = this.props;
         const { firstEpisodeName } = this.state;
         let statusCircleClass = 'statusCircle';
     

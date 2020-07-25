@@ -33,7 +33,7 @@ const CharacterPage = () => {
         <div className="CharacterPage">
             <h1>{name}</h1>
             <div className="character_block">
-                <div> <img src={image} alt="photo"/></div>
+                <div> <img src={image} alt="characterphoto"/></div>
                 <div>{gender}</div>
                 <div>{species}</div>
                 <div></div>
