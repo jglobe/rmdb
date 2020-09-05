@@ -1,8 +1,10 @@
 import { createUseStyles } from 'react-jss';
 
 const styles = createUseStyles({
-    Nav:{
-        backgroundColor:'red',
+    Nav: {
+        '& a:not(:last-child)': {
+            marginRight: '10px',
+        },
     }
 });
 

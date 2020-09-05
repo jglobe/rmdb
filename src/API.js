@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-/*const baseURL = 'https://rickandmortyapi.com/api/';
+const baseURL = 'https://rickandmortyapi.com/api/';
 export class ApiFetch {
     getAllCharacters = async () => {
         const response = await fetch(`${baseURL}character`);
@@ -8,13 +8,19 @@ export class ApiFetch {
         const result = body.results;
         return result;
     }
-}*/
+}
 
 export default class Api {
 
     instance = axios.create({
         baseURL: 'https://rickandmortyapi.com/api/'
     });
+
+    getCharactersByPage = async (pageNumber) => {
+        const response = await this.instance.get(`character/?page=${pageNumber}`);
+        const result = response.data.results;
+        return result;
+    }
 
     getAllCharacters = async () => {
         const response = await this.instance.get('character');
@@ -32,6 +38,7 @@ export default class Api {
         this.instance.defaults.baseURL = "";
         const response = await this.instance.get(url);
         const result = response.data.name;
+        this.instance.defaults.baseURL = "https://rickandmortyapi.com/api/";
         return result
     }
 }

@@ -7,7 +7,7 @@ const CharacterPage = () => {
     const rickMortyApi = new Api();
 
     let { id } = useParams();
-
+    
     const [name, setName] = useState();
     const [gender, setGender] = useState();
     const [image, setImage] = useState();
@@ -20,8 +20,6 @@ const CharacterPage = () => {
             setGender(character.gender);
             setImage(character.image);
             setSpecies(character.species);
-
-            console.log(character);
         }
 
         getCharacter(id);
@@ -32,11 +30,10 @@ const CharacterPage = () => {
         
         <div className="CharacterPage">
             <h1>{name}</h1>
-            <div className="character_block">
-                <div> <img src={image} alt="characterphoto"/></div>
+            <div className="characterBlock">
                 <div>{gender}</div>
+                <div><img src={image} alt={`${name}`} /></div>
                 <div>{species}</div>
-                <div></div>
             </div>
         </div>
     );
