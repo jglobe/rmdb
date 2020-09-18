@@ -13,28 +13,25 @@ export default function Character({ character }) {
   }
 
   return (
-    <div className="Character">
+    <div className="character">
       <div className="imgBlock">
         <img src={character.image} alt={character.name}/>
       </div>
       <div className="textBlock">
-        <div className="titleBlock">
-          <p className="name">
+        <p className="name">
             <Link to={`/character/${character.id}`}>
               {character.name}
             </Link>
-          </p>
+        </p>
           <p className="status">
             <span className={statusCircleClass}></span>
             <span className="statusText">{character.status}</span>
             <span>-</span>
             <span className="species">{character.species}</span>
-            <span className="gender">{character.gender}</span>
           </p>
-        </div>
         <div className="locationBlock">
-          <p className="title">Current location</p>
-          <p className="location">{character.currentLocation}</p>
+          <p className="title">Last known location:</p>
+          <p className="location">{character.location.name}</p>
         </div>
         <div className="firstSeenBlock">
           <p className="title">First seen in:</p>

@@ -1,14 +1,16 @@
 import React from "react";
 
+import './Paginator.css';
+
 function Paginator({ currentPage, pageCount, onNextPage, onPrevPage }) {
   return (
-    <div className="Paginator">
+    <div className="paginator">
       <button disabled={currentPage === 1} onClick={onPrevPage}>
-        prev
+        Back
       </button>
       <span>{currentPage}</span>
       <button disabled={currentPage === pageCount} onClick={onNextPage}>
-        next
+        Next
       </button>
     </div>
   );

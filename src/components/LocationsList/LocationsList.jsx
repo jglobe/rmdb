@@ -14,7 +14,7 @@ function LocationsList () {
 
   React.useEffect(() => {
     dispatch(setLocationsThunk());
-  }, []);
+  }, [dispatch]);
 
   if (!locations.list.length) {
     return <Spinner />;

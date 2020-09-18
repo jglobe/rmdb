@@ -14,7 +14,7 @@ function EpisodesList () {
 
   React.useEffect(() => {
     dispatch(setEpisodesThunk());
-  }, []);
+  }, [dispatch]);
 
   if (!episodes.list.length) {
     return <Spinner />;

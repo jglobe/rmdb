@@ -31,7 +31,6 @@ const EpisodePage = () => {
       <div>{episode.episode}</div>
       <div>Air date: {episode.air_date}</div>
       <div>Created: {episode.created}</div>
-      <div>{episode.characters}</div>
       </div>
     </div>
   );
