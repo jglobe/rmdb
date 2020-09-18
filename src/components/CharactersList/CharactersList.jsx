@@ -1,52 +1,55 @@
 import React from "react";
-import "./CharactersList.css";
+import { useSelector, useDispatch } from "react-redux";
+
+import { setCharactersThunk } from "../../actions/setCharactersAction";
+
 import Character from "../Character";
-import { connect } from "react-redux";
 import Spinner from "../Spinner";
 import Paginator from "../Paginator";
 
-class CharactersList extends React.Component {
-  render() {
-    const { characters } = this.props;
+import "./CharactersList.css";
 
-    const items = characters.map((item) => {
-      return (
-        <li key={item.id}>
-          <Character
-            name={item.name}
-            img={item.image}
-            status={item.status}
-            species={item.species}
-            gender={item.gender}
-            currentLocation={item.location.name}
-            firstEpisodeUrl={item.episode[0]}
-            firstEpisodeName={item.firstEpisodeName}
-            id={item.id}
-          />
-        </li>
-      );
-    });
+function CharactersList () {
+  const dispatch = useDispatch();
 
-    if (!characters.length) {
-      return <Spinner />;
-    }
+  const characters = useSelector(store => store.characters);
 
-    return (
-      <>
-        <div className="CharactersList">
-          <h1>Characters</h1>
-          <ul>{items}</ul>
-        </div>
-        <Paginator />
-      </>
-    );
+  React.useEffect(() => {
+    dispatch(setCharactersThunk());
+  }, [dispatch]);
+  
+  if (!characters.list.length) {
+    return <Spinner />;
   }
+
+  function onPrevPage() {
+    dispatch(setCharactersThunk(characters.paginator.prevPageUrl));
+  }
+
+  function onNextPage() {
+    dispatch(setCharactersThunk(characters.paginator.nextPageUrl));
+  }
+
+  return (
+    <div className="page">
+      <h1 className="page__title">Characters</h1>
+      <div className="page__content">
+        <ul>
+          {characters.list.map((character) => (
+            <li key={character.id}>
+              <Character character={character} />
+            </li>
+          ))}
+        </ul>
+        <Paginator
+          currentPage={characters.paginator.currentPage}
+          pageCount={characters.paginator.pageCount}
+          onPrevPage={onPrevPage}
+          onNextPage={onNextPage}
+        />
+      </div>
+    </div>
+  );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    characters: state.characters,
-  };
-};
-
-export default connect(mapStateToProps)(CharactersList);
+export default CharactersList;

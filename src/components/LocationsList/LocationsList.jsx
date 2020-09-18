@@ -1,45 +1,55 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { setLocationsThunk } from "../../actions/setLocationsAction";
 
 import Location from "../Location";
 import Spinner from "../Spinner";
 import Paginator from "../Paginator";
 
-function LocationsList ()  {{
-    const locations = useSelector(store => store.locations);
+function LocationsList () {
+  const dispatch = useDispatch();
 
-    const items = ;
+  const locations = useSelector(store => store.locations);
 
-    if (!characters.length) {
-        return <Spinner />;
-    }
+  React.useEffect(() => {
+    dispatch(setLocationsThunk());
+  }, []);
 
-    return (
-        <>
-        <div className="CharactersList">
-            <h1>Characters</h1>
-            <ul>
-                {characters.map((item) => (
-                    <li key={item.id}>
-                        <Location
-                        location={Location}
-                        img={item.image}
-                        status={item.status}
-                        species={item.species}
-                        gender={item.gender}
-                        currentLocation={item.location.name}
-                        firstEpisodeUrl={item.episode[0]}
-                        firstEpisodeName={item.firstEpisodeName}
-                        id={item.id}
-                        />
-                    </li>
-                    );
-                })}
-            </ul>
+  if (!locations.list.length) {
+    return <Spinner />;
+  }
+
+  function onNextPage() {
+    dispatch(setLocationsThunk(locations.paginator.nextPageUrl));
+  }
+
+  function onPrevPage() {
+    dispatch(setLocationsThunk(locations.paginator.prevPageUrl));
+  }
+
+  return (
+    <>
+      <div className="page">
+        <h1 className="page__title">Locations</h1>
+        <div className="page__content">
+          <ul>
+            {locations.list.map((location) => (
+              <li key={location.id}>
+                <Location location={location} />
+              </li>
+            ))}
+          </ul>
+          <Paginator
+            currentPage={locations.paginator.currentPage}
+            pageCount={locations.paginator.pageCount}
+            onNextPage={onNextPage}
+            onPrevPage={onPrevPage}
+          />
         </div>
-        <Paginator />
-        </>
-    );
+      </div>
+    </>
+  );
 }
 
-export default CharactersList;
+export default LocationsList;

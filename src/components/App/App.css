@@ -1,6 +1,23 @@
-.App {
-    background-color: rgba(32, 35, 41, 0.5);
+body {
+  margin: 0 auto;
+
+  color: #000;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.App p {
-    margin-top: 0;
+
+.page {
+  padding: 32px;
+  min-height: calc(100vh - 182px);
+}
+
+.page__title {
+  margin: 0;
+
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.page__content {
+  margin-top: 32px;
 }

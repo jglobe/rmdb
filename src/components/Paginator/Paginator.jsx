@@ -1,39 +1,17 @@
 import React from "react";
-import { connect } from "react-redux";
-import { setCharactersThunk } from "../../actions/setCharectersAction";
 
-const Paginator = (props) => {
-  const {
-    nextPageUrl,
-    prevPageUrl,
-    currentPage,
-    pageCount,
-    getNextPage,
-    getPrevPage,
-  } = props;
+function Paginator({ currentPage, pageCount, onNextPage, onPrevPage }) {
   return (
     <div className="Paginator">
-      {prevPageUrl && (
-        <button onClick={() => getPrevPage(prevPageUrl)}>prevBtn</button>
-      )}
+      <button disabled={currentPage === 1} onClick={onPrevPage}>
+        prev
+      </button>
       <span>{currentPage}</span>
-      {nextPageUrl && (
-        <button onClick={() => getNextPage(nextPageUrl)}>nextBtn</button>
-      )}
+      <button disabled={currentPage === pageCount} onClick={onNextPage}>
+        next
+      </button>
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  nextPageUrl: state.paginator.nextPageUrl,
-  prevPageUrl: state.paginator.prevPageUrl,
-  pageCount: state.paginator.pageCount,
-  currentPage: state.paginator.currentPage,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  getNextPage: (nextPageUrl) => dispatch(setCharactersThunk(nextPageUrl)),
-  getPrevPage: (prevPageUrl) => dispatch(setCharactersThunk(prevPageUrl)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Paginator);
+export default Paginator;

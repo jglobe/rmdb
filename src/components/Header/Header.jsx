@@ -1,22 +1,19 @@
 import React from "react";
-//import './Header.css';
-import styles from "./Header.module.css";
-import Nav from "../Nav";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+import Nav from "../Nav";
+
+import './Header.css';
+
+function Header () {
   return (
-    <div className={`Header ${styles.Header}`}>
-      <div className="title_block">
-        <Link className={styles.logo_link} to="/">
-          Rick & Morty BD
-        </Link>
-      </div>
-      <div className="nav_block">
-        <Nav />
-      </div>
+    <div className="header">
+      <Link className="header__link" to="/">
+        Rick & Morty DB
+      </Link>
+      <Nav />
     </div>
   );
-};
+}
 
 export default Header;

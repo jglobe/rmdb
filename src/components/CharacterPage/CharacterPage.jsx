@@ -1,42 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Api from '../../API';
+
+import api from "../../api";
+
+import Spinner from "../Spinner";
 
 const CharacterPage = () => {
+  const { id } = useParams();
+  
+  const [character, setCharacter] = useState(null);
 
-    const rickMortyApi = new Api();
+  useEffect(() =>  {
+    async function getCharacter(id) {
+      const character = await api.getCharacter(id);
+      setCharacter(character);
+    }
 
-    let { id } = useParams();
-    
-    const [name, setName] = useState();
-    const [gender, setGender] = useState();
-    const [image, setImage] = useState();
-    const [species, setSpecies] = useState();
+    getCharacter(id);
+  }, [id]);
 
-    useEffect(() =>  {
-        async function getCharacter(id) {
-            const character = await rickMortyApi.getCharacter(id);
-            setName(character.name);
-            setGender(character.gender);
-            setImage(character.image);
-            setSpecies(character.species);
-        }
+  if (!character) {
+    return <Spinner />;
+  }
 
-        getCharacter(id);
-    }, [id, rickMortyApi]);
-    
-
-    return(
-        
-        <div className="CharacterPage">
-            <h1>{name}</h1>
-            <div className="characterBlock">
-                <div>{gender}</div>
-                <div><img src={image} alt={`${name}`} /></div>
-                <div>{species}</div>
-            </div>
-        </div>
-    );
+  return(
+    <div className="page">
+      <h1 className="page__title">{character.name}</h1>
+      <div className="page__content">
+        <div><img src={character.image} alt={character.name} /></div>
+        <div>Status: {character.status}</div>
+        <div>Species: {character.species}</div>
+        <div>Type: {character.type}</div>
+        <div>Gender: {character.gender}</div>
+        <div>Origin: <a href={character.origin.url}>{character.origin.name}</a></div>
+        <div>Created: {character.created}</div>
+      </div>
+    </div>
+  );
 }
 
 export default CharacterPage;
