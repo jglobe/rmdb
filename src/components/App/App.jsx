@@ -18,25 +18,25 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route exact path="/rmdb">
+        <Route exact path="/">
           <Background />
         </Route>
-        <Route path="/rmdb/characters">
+        <Route path="/characters">
           <CharactersList />
         </Route>
-        <Route path="/rmdb/character/:id">
+        <Route path="/character/:id">
           <CharacterPage />
         </Route>
-        <Route path="/rmdb/episodes">
+        <Route path="/episodes">
           <EpisodesList />
         </Route>
-        <Route path="/rmdb/episode/:id">
+        <Route path="/episode/:id">
           <EpisodePage />
         </Route>
-        <Route path="/rmdb/locations">
+        <Route path="/locations">
           <LocationsList />
         </Route>
-        <Route path="/rmdb/location/:id">
+        <Route path="/location/:id">
           <LocationPage />
         </Route>
       </Switch>
