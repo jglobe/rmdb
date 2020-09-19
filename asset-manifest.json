@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/rmdb/static/css/main.e655a160.chunk.css",
+    "main.js": "/rmdb/static/js/main.fc123d93.chunk.js",
+    "main.js.map": "/rmdb/static/js/main.fc123d93.chunk.js.map",
+    "runtime-main.js": "/rmdb/static/js/runtime-main.d9317e8c.js",
+    "runtime-main.js.map": "/rmdb/static/js/runtime-main.d9317e8c.js.map",
+    "static/js/2.1dc5fe10.chunk.js": "/rmdb/static/js/2.1dc5fe10.chunk.js",
+    "static/js/2.1dc5fe10.chunk.js.map": "/rmdb/static/js/2.1dc5fe10.chunk.js.map",
+    "index.html": "/rmdb/index.html",
+    "precache-manifest.1feedaa56d2df40845b4985cc0b0467b.js": "/rmdb/precache-manifest.1feedaa56d2df40845b4985cc0b0467b.js",
+    "service-worker.js": "/rmdb/service-worker.js",
+    "static/css/main.e655a160.chunk.css.map": "/rmdb/static/css/main.e655a160.chunk.css.map",
+    "static/js/2.1dc5fe10.chunk.js.LICENSE.txt": "/rmdb/static/js/2.1dc5fe10.chunk.js.LICENSE.txt",
+    "static/media/Background.css": "/rmdb/static/media/rmdb_bg.48e54a6e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d9317e8c.js",
+    "static/js/2.1dc5fe10.chunk.js",
+    "static/css/main.e655a160.chunk.css",
+    "static/js/main.fc123d93.chunk.js"
+  ]
+}
