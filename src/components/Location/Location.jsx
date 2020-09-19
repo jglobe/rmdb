@@ -6,7 +6,7 @@ import './Location.css';
 export default function Location({ location }) {
   return (
     <div className="Location">
-      <Link to={`/location/${location.id}`}>
+      <Link to={`/rmdb/location/${location.id}`}>
         {location.name}
       </Link>
     </div>

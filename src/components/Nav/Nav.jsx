@@ -5,15 +5,15 @@ import './Nav.css';
 
 const links = [
   {
-    path: '/characters',
+    path: '/rmdb/characters',
     title: 'Characters',
   },
   {
-    path: '/episodes',
+    path: '/rmdb/episodes',
     title: 'Episodes',
   },
   {
-    path: '/locations',
+    path: '/rmdb/locations',
     title: 'Locations',
   }
 ];

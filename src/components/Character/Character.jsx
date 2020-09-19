@@ -19,7 +19,7 @@ export default function Character({ character }) {
       </div>
       <div className="textBlock">
         <p className="name">
-            <Link to={`/character/${character.id}`}>
+            <Link to={`/rmdb/character/${character.id}`}>
               {character.name}
             </Link>
         </p>

@@ -6,7 +6,7 @@ import './Episode.css';
 export default function Episode({ episode }) {
   return (
     <div className="Episode">
-      <Link to={`/episode/${episode.id}`}>
+      <Link to={`/rmdb/episode/${episode.id}`}>
         {episode.name}
       </Link>
     </div>
