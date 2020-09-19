@@ -8,7 +8,7 @@ import './Header.css';
 function Header () {
   return (
     <div className="header">
-      <Link className="header__link" to="/">
+      <Link className="header__link" to="/rmdb/">
         Rick & Morty DB
       </Link>
       <Nav />
